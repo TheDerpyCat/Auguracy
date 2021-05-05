@@ -10,7 +10,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import thederpycat.auguracy.Auguracy;
 import thederpycat.auguracy.capabilities.ElementsCapabilityHandler;
+import thederpycat.auguracy.capabilities.ManaCapabilityHandler;
 import thederpycat.auguracy.capabilities.elements.CapabilityElements;
+import thederpycat.auguracy.capabilities.mana.CapabilityMana;
 import thederpycat.auguracy.commands.ModCommands;
 import thederpycat.auguracy.gui.GuiEventHandler;
 import thederpycat.auguracy.network.PacketChannel;
@@ -33,6 +35,7 @@ public class ModSetup
     {
         PacketChannel.registerPackets();
         CapabilityElements.register();
+        CapabilityMana.register();
 
         MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, ElementsCapabilityHandler::onAttachCapabilityEvent);
         MinecraftForge.EVENT_BUS.addListener(ElementsCapabilityHandler::onBlockDestroyedByPlayerEvent);
@@ -42,6 +45,9 @@ public class ModSetup
         MinecraftForge.EVENT_BUS.addListener(ElementsCapabilityHandler::onPlayerChangedDimensionEvent);
         MinecraftForge.EVENT_BUS.addListener(ElementsCapabilityHandler::onRespawnEvent);
         MinecraftForge.EVENT_BUS.addListener(GuiEventHandler::onDrawScreen);
+
+        MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, ManaCapabilityHandler::onAttachCapabilityEvent);
+        MinecraftForge.EVENT_BUS.addListener(ManaCapabilityHandler::onPlayerCloneEvent);
 
 
     }
