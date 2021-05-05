@@ -1,0 +1,1 @@
+Auguracy is a magic mod for 1.16.5

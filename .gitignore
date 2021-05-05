@@ -1,0 +1,31 @@
+# stuff to not commit
+/build
+/bin
+/dist
+/manifest.mf
+/run
+/libs
+/eclipse
+/classes
+/out
+/logs
+*.jar
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# other stuff
+/src/generated/
+*.jks
+gradle.attributes
+gradle.properties
+
+
+# gradle stuff
+/gradlew
+/gradlew.bat
+/gradle
+/.gradle

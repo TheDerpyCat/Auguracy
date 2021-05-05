@@ -1,0 +1,12 @@
+{
+  "item.auguracy.manashard": "Mana Shard",
+  "block.auguracy.manaflower": "Mana Flower",
+  "itemGroup.auguracy": "Auguracy",
+
+  "earth.auguracy.level_up": "Earth element level is now %s",
+  "fire.auguracy.level_up": "Fire element level is now %s",
+  "water.auguracy.level_up": "Water element level is now %s",
+  "air.auguracy.level_up": "Air element level is now %s",
+  "corruption.auguracy.level_up": "Corruption element level is now %s"
+
+}
