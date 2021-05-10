@@ -1,5 +1,6 @@
 package thederpycat.auguracy.network.packets;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.LogicalSide;
@@ -35,7 +36,7 @@ public class SyncElementDataPacket
     {
         if(context.get().getDirection().getReceptionSide() == LogicalSide.CLIENT)
         {
-           PlayerEntity player = context.get().getSender();
+           PlayerEntity player = Minecraft.getInstance().player;
             context.get().enqueueWork(() ->
             {
               IElements elements = player.getCapability(CapabilityElements.ELEMENTS_CAPABILITY).orElse(null);

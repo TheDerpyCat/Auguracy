@@ -53,7 +53,7 @@ public class ElementsCapabilityHandler
         if(!player.level.isClientSide)
         {
             IElements element = player.getCapability(CapabilityElements.ELEMENTS_CAPABILITY).orElse(null);
-            PacketChannel.sendToClient(new LevelUpMessagePacket(element.getLevel(event.getIndex()), event.getIndex()), (ServerPlayerEntity) player);
+            PacketChannel.sendToClient(new LevelUpMessagePacket(event.getLevel(), event.getIndex()), (ServerPlayerEntity) player);
             PacketChannel.sendToClient(new SyncElementDataPacket(element.getAllLevels(), element.getAllXP()), (ServerPlayerEntity) player);
         }
     }

@@ -1,6 +1,7 @@
 package thederpycat.auguracy.network.packets;
 
-import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -32,10 +33,9 @@ public class LevelUpMessagePacket
 
     public boolean handle(Supplier<NetworkEvent.Context> context)
     {
-        ServerPlayerEntity player = context.get().getSender();
-
         context.get().enqueueWork(() ->
         {
+            PlayerEntity player = Minecraft.getInstance().player;
             switch(index)
             {
                 case 0:
@@ -59,7 +59,7 @@ public class LevelUpMessagePacket
         return true;
     }
 
-    public static void sendMessage(ServerPlayerEntity player, ITextComponent message, UUID uuid)
+    public static void sendMessage(PlayerEntity player, ITextComponent message, UUID uuid)
     {
         player.sendMessage(message, uuid);
     }

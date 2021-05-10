@@ -2,9 +2,6 @@ package thederpycat.auguracy.capabilities.elements;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.common.MinecraftForge;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import thederpycat.auguracy.Auguracy;
 import thederpycat.auguracy.api.events.LevelUpEvent;
 
 import java.lang.reflect.Array;
@@ -12,7 +9,6 @@ import java.util.Arrays;
 
 public class Elements implements IElements
 {
-    private static final Logger LOGGER = LogManager.getLogger(Auguracy.MODID);
     //index 0 is earth, index 1 is fire, index 2 is water, index 3 is air, index 4 is corruption;
     private int[] levelsArray = new int[5];
     //current amount of experience for each element the player has

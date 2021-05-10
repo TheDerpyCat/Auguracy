@@ -14,6 +14,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import thederpycat.auguracy.Auguracy;
 import thederpycat.auguracy.blocks.ManaFlower;
+import thederpycat.auguracy.items.DivineWand;
 import thederpycat.auguracy.items.ManaShard;
 
 public class Registration
@@ -40,4 +41,5 @@ public class Registration
     public static final RegistryObject<Item> MANAFLOWER_ITEM = ITEMS.register("manaflower", () -> new BlockItem(MANAFLOWER.get(), new Item.Properties().tab(ModSetup.AUGURACY_GROUP)));
 
     public static final RegistryObject<Item> MANASHARD = ITEMS.register("manashard", ManaShard::new);
+    public static final RegistryObject<Item> DIVINEWAND = ITEMS.register("divinewand", DivineWand::new);
 }

@@ -24,7 +24,7 @@ public class ManaProvider implements ICapabilitySerializable<CompoundNBT>
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side)
     {
-        return manaOptional.cast();
+        return CapabilityMana.MANA_CAPABILITY.orEmpty(cap, manaOptional);
     }
 
     @Override

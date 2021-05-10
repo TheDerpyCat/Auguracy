@@ -13,8 +13,8 @@ import thederpycat.auguracy.capabilities.elements.IElements;
 
 public class ElementsGui extends AbstractGui
 {
-    private static final int WIDTH = 319;
-    private static final int HEIGHT = 45;
+    private final int WIDTH = 319;
+    private final int HEIGHT = 45;
 
     private final GuiEventHandler elementsGui;
     private final InventoryScreen gui;
@@ -32,19 +32,20 @@ public class ElementsGui extends AbstractGui
 
     public void renderElementLevels(MatrixStack matrixStack)
     {
-        int screenWidth = minecraft.getWindow().getGuiScaledWidth();
-        int screenHeight = minecraft.getWindow().getGuiScaledHeight();
-        int relX = (Minecraft.getInstance().screen.width - WIDTH) / 2;
-        int relY = (Minecraft.getInstance().screen.height  - HEIGHT) / 2;
+        PlayerEntity player = minecraft.player;
+        int relX = (minecraft.screen.width - WIDTH) / 2;
+        int relY = (minecraft.screen.height  - HEIGHT) / 2;
 
         //draws texture
         minecraft.getTextureManager().bind(GUI);
         this.blit(matrixStack, WIDTH, HEIGHT, 0, 0, relX, relY);
 
-        PlayerEntity player = minecraft.player;
         IElements elements = player.getCapability(CapabilityElements.ELEMENTS_CAPABILITY).orElse(null);
+
+        //renders level for each element
         int offset = 24;
-        //renders level at each element
+        int screenWidth = minecraft.getWindow().getGuiScaledWidth();
+        int screenHeight = minecraft.getWindow().getGuiScaledHeight();
         for(int i = 0; i < elements.getAllLevels().length; i++)
         {
             int level = elements.getLevel(i);

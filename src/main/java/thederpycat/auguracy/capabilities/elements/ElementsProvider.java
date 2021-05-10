@@ -24,7 +24,7 @@ public class ElementsProvider implements ICapabilitySerializable<CompoundNBT>
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side)
     {
-        return elementsOptional.cast();
+        return CapabilityElements.ELEMENTS_CAPABILITY.orEmpty(cap, elementsOptional);
     }
 
     @Override

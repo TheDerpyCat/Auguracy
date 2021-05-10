@@ -8,6 +8,7 @@ import net.minecraftforge.fml.network.simple.SimpleChannel;
 import thederpycat.auguracy.Auguracy;
 import thederpycat.auguracy.network.packets.LevelUpMessagePacket;
 import thederpycat.auguracy.network.packets.SyncElementDataPacket;
+import thederpycat.auguracy.network.packets.SyncManaPacket;
 
 public class PacketChannel
 {
@@ -24,6 +25,7 @@ public class PacketChannel
     {
         INSTANCE.registerMessage(id++, SyncElementDataPacket.class, SyncElementDataPacket::encode, SyncElementDataPacket::decode, SyncElementDataPacket::handle);
         INSTANCE.registerMessage(id++, LevelUpMessagePacket.class, LevelUpMessagePacket::encode, LevelUpMessagePacket::decode, LevelUpMessagePacket::handle);
+        INSTANCE.registerMessage(id++, SyncManaPacket.class, SyncManaPacket::encode, SyncManaPacket::decode, SyncManaPacket::handle);
     }
 
 

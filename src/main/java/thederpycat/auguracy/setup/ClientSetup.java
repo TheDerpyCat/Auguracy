@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import thederpycat.auguracy.Auguracy;
 import thederpycat.auguracy.gui.GuiEventHandler;
+import thederpycat.auguracy.gui.HUDEventHandler;
 
 import java.util.Optional;
 
@@ -26,5 +27,7 @@ public class ClientSetup
         {
             elementsGui.ifPresent(MinecraftForge.EVENT_BUS::register);
         });
+
+        MinecraftForge.EVENT_BUS.addListener(HUDEventHandler::onDrawHUDPost);
     }
 }

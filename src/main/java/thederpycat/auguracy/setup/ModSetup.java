@@ -44,10 +44,16 @@ public class ModSetup
         MinecraftForge.EVENT_BUS.addListener(ElementsCapabilityHandler::onPlayerConnectEvent);
         MinecraftForge.EVENT_BUS.addListener(ElementsCapabilityHandler::onPlayerChangedDimensionEvent);
         MinecraftForge.EVENT_BUS.addListener(ElementsCapabilityHandler::onRespawnEvent);
-        MinecraftForge.EVENT_BUS.addListener(GuiEventHandler::onDrawScreen);
 
         MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, ManaCapabilityHandler::onAttachCapabilityEvent);
+        MinecraftForge.EVENT_BUS.addListener(ManaCapabilityHandler::onPlayerTickEvent);
         MinecraftForge.EVENT_BUS.addListener(ManaCapabilityHandler::onPlayerCloneEvent);
+        MinecraftForge.EVENT_BUS.addListener(ManaCapabilityHandler::onManaUpdateEvent);
+        MinecraftForge.EVENT_BUS.addListener(ManaCapabilityHandler::onPlayerConnectEvent);
+        MinecraftForge.EVENT_BUS.addListener(ManaCapabilityHandler::onPlayerChangedDimensionEvent);
+        MinecraftForge.EVENT_BUS.addListener(ManaCapabilityHandler::onRespawnEvent);
+
+        MinecraftForge.EVENT_BUS.addListener(GuiEventHandler::onDrawScreen);
 
 
     }
